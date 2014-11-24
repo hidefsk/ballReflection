@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ball Reflection</title>
+    <style>
+        body {
+          text-align: center;
+        }
+        canvas {
+          display: block;
+          border: solid 1px #000000;
+        }
+
+        .cf:before,
+        .cf:after {
+            content:"";
+            display:table;
+        }         
+        .cf:after {
+            clear:both;
+        }
+        .b-canvas {
+          position: relative;
+          height: 500px;
+        }
+        .is-active {
+          background-color: #f00;
+        }
+
+        .gravity-ctrl {
+          width: 300px;
+          height: 200px;
+          text-align: center;
+        }
+        .center {
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: 0;
+          margin: 0 auto;
+        }
+        .gravity-ctrl-left {
+          float: left;
+        }
+        .gravity-ctrl-right {
+          float: right;
+        }
+    </style>
+</head>
+<body>
+  <div>
+    <h1>Ball Reflection</h1>
+
+    <button class="js-sound">sound off</button>
+    <button class="js-reset">Ball Reset</button>
+
+    <div class="b-canvas js-canvas">
+      <canvas id="canvasRect" class="center" width="640px" height="500px"></canvas>
+    </div>
+  </div>
+
+  <div class="gravity-ctrl center">
+    <button class="gravity-ctrl-top js-top-btn js-gravity-btn">top</button>
+
+    <div class="gravity-ctrl-horizontal cf">
+      <button class="gravity-ctrl-left js-left-btn js-gravity-btn">left</button>
+      <button class="gravity-ctrl-right js-right-btn js-gravity-btn">right</button>
+    </div>
+
+    <button class="gravity-ctrl-bottom js-bottom-btn js-gravity-btn is-active">bottom</button>
+  </div>
+  <script src="js/lib/jquery-2.1.0.min.js"></script>
+  <script src="js/ball_reflection.js"></script>
+</body>
+</html>
