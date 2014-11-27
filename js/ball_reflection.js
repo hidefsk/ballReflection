@@ -3,8 +3,10 @@ var canvas,
   balls = [],
 
   FPS = 1000 / 100,
-  VX_PARAM  = 0.0,
-	VY_PARAM  = 0.1,
+  V0 = 0.0,
+  V = 0.1
+  vx_param  = V0,
+	vy_param  = V,
   W = 640,
   H = 500,
   DAMPING_PARAM = 0.9,
@@ -56,8 +58,8 @@ var Ball = function(x, y, r, leftVelFlg, color) {
 }
 
 Ball.prototype.update =function () {
-	this.vx += VX_PARAM; //重力加速度的な係数
-	this.vy += VY_PARAM; //重力加速度的な係数
+	this.vx += vx_param; //重力加速度的な係数
+	this.vy += vy_param; //重力加速度的な係数
 	this.x += this.vx;
 	this.y += this.vy;
 };
@@ -191,29 +193,29 @@ window.onload = function() {
 	}
 
 	$('.js-top-btn').on('click', function(){
-			VX_PARAM = 0.0;
-			VY_PARAM = -0.2;
+			vx_param = V0;
+			vy_param = -V1;
 			$gravityBtn.removeClass('is-active');
 			$(this).addClass('is-active');
 	});
 
 	$('.js-bottom-btn').on('click', function(){
-			VX_PARAM = 0.0;
-			VY_PARAM = 0.2;
+			vx_param = V0;
+			vy_param = V1;
 			$gravityBtn.removeClass('is-active');
 			$(this).addClass('is-active');
 	});
 
 	$('.js-left-btn').on('click', function(){
-			VX_PARAM = -0.2;
-			VY_PARAM = 0.0;
+			vx_param = -V1;
+			vy_param = V0;
 			$gravityBtn.removeClass('is-active');
 			$(this).addClass('is-active');
 	});
 
 	$('.js-right-btn').on('click', function(){
-			VX_PARAM = 0.2;
-			VY_PARAM = 0.0;
+			vx_param = V1;
+			vy_param = V0;
 			$gravityBtn.removeClass('is-active');
 			$(this).addClass('is-active');
 	});
